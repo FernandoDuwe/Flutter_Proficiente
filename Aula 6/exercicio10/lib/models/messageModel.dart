@@ -52,5 +52,10 @@ class MessageModel {
       "param": this.param,
       "created_at": DateTime.now()
     };
+    }
+
+  bool userCanRead(String origin, String destiny) {
+    return ((this.origin == origin) && (this.destiny == destiny)) ||
+        ((this.origin == destiny) && (this.destiny == origin));
   }
 }

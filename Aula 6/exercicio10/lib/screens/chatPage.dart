@@ -35,18 +35,20 @@ class ChatPage extends StatelessWidget {
             );
 
           return ListView.builder(
-            reverse: true,
-            itemCount: store.messages.length,
-            itemBuilder: (context, index) {
-              return MessageTile(
-                  message: store.messages[index],
-                  origin: origin,
-                  destiny: destiny);
-            },
+              padding: EdgeInsets.only(bottom: 100),
+
+              reverse: true,
+              itemCount: store.messages.length,
+              itemBuilder: (context, index) {
+                return MessageTile(
+                    message: store.messages[index],
+                    origin: origin,
+                    destiny: destiny);
+              },
           );
         },
       ),
-      bottomNavigationBar: MessageForm(
+      bottomSheet: MessageForm(
         origin: origin,
         destiny: destiny,
       ),

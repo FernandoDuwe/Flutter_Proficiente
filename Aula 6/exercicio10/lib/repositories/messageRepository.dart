@@ -33,9 +33,7 @@ class MessageRepository {
       messages.add(MessageModel.fromJson(element.data() as MapJson));
     });
 
-    messages.removeWhere((element) =>
-        ((element.origin != origin) && (element.destiny != origin)) &&
-        ((element.origin != destiny) && (element.destiny != destiny)));
+    messages.removeWhere((element) => !element.userCanRead(origin, destiny));
 
     return messages;
   }
